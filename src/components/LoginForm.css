@@ -1,0 +1,162 @@
+/* LoginForm.css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box; /* Add this to include padding in width calculation */
+  }
+  
+  .login-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-right: 25px;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%; /* Ensure input group takes full width */
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  .input-with-icon {
+    width: 100%;
+    padding: 0.75rem;
+    padding-left: 2.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-sizing: border-box; /* Add this to include padding in width calculation */
+  }
+  
+  .input-with-icon:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+  
+  .input-with-icon::placeholder {
+    color: #999;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box; /* Add this to include padding in width calculation */
+  }
+  
+  .login-button:hover {
+    background-color: #357abd;
+  }
+  
+  .login-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    width: 100%; /* Ensure divider takes full width */
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .divider span {
+    padding: 0 10px;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  .google-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: white;
+    color: #757575;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    box-sizing: border-box; /* Add this to include padding in width calculation */
+  }
+  
+  .google-button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .google-button:disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+  }
+  
+  .google-button img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .login-form {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .login-title {
+      font-size: 1.5rem;
+    }
+  }

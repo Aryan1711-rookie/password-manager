@@ -1,19 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './LoginScreen.css';
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../config/firebase";
 
 const LoginScreen = () => {
   const loginFormRef = useRef(null);
-  const [showLoginForm, setShowLoginForm] = useState(false);
 
-  const login = () => {
-    setShowLoginForm(true);
-    if (loginFormRef.current) {
-      loginFormRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+
   const [loading, setLoading] = useState(false);  
   const [error, setError] = useState("");  // State to handle error messages
   const navigate = useNavigate();

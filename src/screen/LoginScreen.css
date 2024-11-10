@@ -2,14 +2,15 @@
     --tw-bg-opacity: 1;
     background-color: rgb(147 197 253 / var(--tw-bg-opacity));
     display: flex;
-    height: 555px;
+    height:650px; /* Allow height to adjust based on content */
     border-bottom-left-radius: 25% 100px;
     border-bottom-right-radius: 25% 100px;
     animation: animate-radius 2s infinite, float 4s ease-in-out infinite;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
+    /*position: relative;*/
+    justify-content: center;
+    padding: 40px 20px; /* Add padding for spacing */
 }
 
 /* Animate the border-radius */
@@ -34,8 +35,6 @@
     }
 }
 
-
-
 .title {
     font-size: 3rem;
     text-align: center;
@@ -51,45 +50,42 @@
     font-weight: 600;
 }
 
-/* Login button styling and positioning */
-.login {
-    position: absolute;
-    bottom: 130px;
-    padding: 10px 25px;
-    font-size: 1.2rem;
-    color: black;
-    background-color: whitesmoke;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px; /* Reduce bottom margin */
+    margin-left: 75px;
+    background-color: white;
+    backdrop-filter: blur(55px);
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px 30px; /* Add some internal spacing */
+    width: calc(100% - 150px); /* Adjust width based on available space */
+    max-width: 900px; /* Limit max-width for large screens */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interaction */
 }
 
-.login:hover {
-    background-color: black;
-    color: white;
+/* Hover effect to scale container */
+.login-container:hover {
+    transform: translateY(-5px); /* Lift the container slightly */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
-.login-form-enter {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  
-  .login-form-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 300ms, transform 300ms;
-  }
-  
-  .login-form-exit {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .login-form-exit-active {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 300ms, transform 300ms;
-  }
-  
-  
+/* For responsiveness */
+@media (max-width: 768px) {
+    .header{
+        height: 700px;
+        margin-top: 9px;
+    }
+    .login-container {
+        margin-left: 5px; /* Adjust for smaller screens */
+        width: calc(100% - 5px); /* Make the container take up more space on smaller screens */
+        height: 35vh;
+    }
+    .container{
+        margin-top: 17px;
+    }
+}

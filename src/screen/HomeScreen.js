@@ -96,9 +96,9 @@ const HomeScreen = () => {
         }
     }, [password]);
 
-    useEffect(() => {
+  /*  useEffect(() => {
         passwordGenerator();
-    }, [length, numberAllow, charAllow, passwordGenerator]);
+    }, [length, numberAllow, charAllow, passwordGenerator]);*/
 
     const handleChange = (e) => {
         setUsername(e.target.value);
@@ -235,10 +235,11 @@ const HomeScreen = () => {
                             <input
                                 type={showPassword['generator'] ? "text" : "password"}
                                 value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className="w-full py-3 px-4 pr-24 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                                 placeholder="Generated password..."
-                                readOnly
-                                ref={passwordRef}
+                                //readOnly
+                               // ref={passwordRef}
                             />
                             <div className="absolute right-2 top-1/2 -translate-y-1/2 flex gap-2">
                                 <button

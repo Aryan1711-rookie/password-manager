@@ -5,6 +5,9 @@ import { auth, db } from "../config/firebase";
 import { ref, set, push, remove, get, query, orderByChild } from "firebase/database";
 import CryptoJS from 'crypto-js';
 import { Lock, Copy, Trash2, LogOut, Eye, EyeOff, RefreshCw, Save, Key, Check } from 'lucide-react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const HomeScreen = () => {
     const [length, setLength] = useState(8);
@@ -16,7 +19,7 @@ const HomeScreen = () => {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState({});
     const [copied, setCopied] = useState("");
-
+   // const [category, setCategory] = useState("other");
     const navigate = useNavigate();
     const passwordRef = useRef(null);
 
@@ -84,6 +87,7 @@ const HomeScreen = () => {
             pass += str.charAt(char);
         }
         setPassword(pass);
+        setPassword("");
     }, [length, numberAllow, charAllow]);
 
     const copyPasswordToClip = useCallback(async (passwordToCopy = password, id = 'generator') => {
@@ -132,6 +136,7 @@ const HomeScreen = () => {
             const newCredential = {
                 username: username.trim(),
                 password: encryptedPassword,
+               // category: category,
                 userId: user.uid,
                 createdAt: new Date().toISOString()
             };
@@ -142,8 +147,9 @@ const HomeScreen = () => {
             await fetchPasswords();
             setUsername("");
             passwordGenerator();
+            toast.success("Credential saved successfully");
         } catch (error) {
-            alert("Error saving credential: " + error.message);
+            toast.error("Error saving credential: " + error.message);
         }
     };
 
@@ -237,10 +243,11 @@ const HomeScreen = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full py-3 px-4 pr-24 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
-                                placeholder="Generated password..."
+                                placeholder="your password..."
                                 //readOnly
-                               // ref={passwordRef}
+                                ref={passwordRef}
                             />
+
                             <div className="absolute right-2 top-1/2 -translate-y-1/2 flex gap-2">
                                 <button
                                     onClick={() => togglePasswordVisibility('generator')}
